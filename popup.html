@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Gemini Chat Map</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 10px 12px;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        font-size: 13px;
+        min-width: 220px;
+      }
+      .row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+      }
+      label {
+        font-weight: 500;
+      }
+      input[type="checkbox"] {
+        width: 34px;
+        height: 18px;
+      }
+      .hint {
+        margin-top: 8px;
+        font-size: 11px;
+        color: #6b7280;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="row">
+      <label for="toggle">启用 Gemini Chat Map</label>
+      <input id="toggle" type="checkbox" checked />
+    </div>
+    <div class="hint">只影响当前活动的 Gemini 标签页。</div>
+    <script src="popup.js"></script>
+  </body>
+</html>
+

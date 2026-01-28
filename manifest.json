@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Gemini Chat Map",
+  "description": "为 Google Gemini 对话界面添加用户消息导航侧边栏，实现快速滚动定位到历史提问。",
+  "version": "1.0.0",
+  "action": {
+    "default_title": "Gemini Chat Map",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://gemini.google.com/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "host_permissions": [
+    "https://gemini.google.com/*"
+  ],
+  "permissions": [
+    "tabs"
+  ]
+}

@@ -1,0 +1,167 @@
+/* styles.css */
+
+/* 固定在右侧中上方的容器 */
+#gemini-chat-map-sidebar {
+  position: fixed;
+  top: 10%;
+  right: 0;
+  z-index: 9999;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 220px;
+  max-height: 80%;
+  padding: 8px 8px 10px;
+
+  box-sizing: border-box;
+  border-radius: 8px 0 0 8px;
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  overflow: hidden;
+  pointer-events: auto;
+}
+
+/* 标题 */
+.gemini-chat-map-sidebar-header {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+/* 列表容器 */
+#gemini-chat-map-sidebar-list {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 2px;
+}
+
+/* 自定义滚动条（尽量低侵入） */
+#gemini-chat-map-sidebar-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+#gemini-chat-map-sidebar-list::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+}
+
+/* 每条用户消息项 */
+.gemini-chat-map-sidebar-item {
+  width: 100%;
+  text-align: left;
+
+  margin-bottom: 4px;
+  padding: 6px 8px;
+
+  border-radius: 6px;
+  border: none;
+
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 1.4;
+  white-space: normal;
+  word-break: break-word;
+
+  transition: background-color 120ms ease, transform 80ms ease, box-shadow 120ms ease;
+}
+
+/* hover/active 态 */
+.gemini-chat-map-sidebar-item:hover {
+  transform: translateY(-1px);
+}
+
+.gemini-chat-map-sidebar-item:active {
+  transform: translateY(0);
+}
+
+/* 高亮目标消息（添加在 Gemini 原始消息元素上） */
+.gemini-chat-map-highlight {
+  outline: 2px solid rgba(88, 166, 255, 0.7);
+  outline-offset: 2px;
+  border-radius: 8px;
+  box-shadow: 0 0 0 1px rgba(88, 166, 255, 0.4);
+  transition: outline-color 150ms ease, box-shadow 150ms ease;
+}
+
+/* ===== 亮色模式下的主题适配 ===== */
+@media (prefers-color-scheme: light) {
+  #gemini-chat-map-sidebar {
+    background: rgba(255, 255, 255, 0.88);
+    box-shadow:
+      0 12px 30px rgba(0, 0, 0, 0.18),
+      0 0 0 1px rgba(15, 23, 42, 0.06);
+    color: #0f172a;
+  }
+
+  .gemini-chat-map-sidebar-header {
+    color: #0f172a;
+  }
+
+  #gemini-chat-map-sidebar-list::-webkit-scrollbar-thumb {
+    background: rgba(148, 163, 184, 0.9);
+  }
+
+  .gemini-chat-map-sidebar-item {
+    background: rgba(248, 250, 252, 0.95);
+    color: #0f172a;
+  }
+
+  .gemini-chat-map-sidebar-item:hover {
+    background: rgba(226, 232, 240, 0.95);
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.18);
+  }
+
+  .gemini-chat-map-sidebar-item:active {
+    background: rgba(209, 213, 219, 0.95);
+    box-shadow: 0 0 0 rgba(15, 23, 42, 0.05);
+  }
+
+  .gemini-chat-map-highlight {
+    outline-color: rgba(37, 99, 235, 0.85);
+    box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.6);
+  }
+}
+
+/* ===== 暗色模式下的主题适配 ===== */
+@media (prefers-color-scheme: dark) {
+  #gemini-chat-map-sidebar {
+    background: rgba(15, 23, 42, 0.88);
+    box-shadow:
+      0 16px 40px rgba(0, 0, 0, 0.55),
+      0 0 0 1px rgba(148, 163, 184, 0.18);
+    color: #e5e7eb;
+  }
+
+  .gemini-chat-map-sidebar-header {
+    color: #e5e7eb;
+  }
+
+  #gemini-chat-map-sidebar-list::-webkit-scrollbar-thumb {
+    background: rgba(75, 85, 99, 0.9);
+  }
+
+  .gemini-chat-map-sidebar-item {
+    background: rgba(17, 24, 39, 0.96);
+    color: #e5e7eb;
+  }
+
+  .gemini-chat-map-sidebar-item:hover {
+    background: rgba(31, 41, 55, 0.96);
+    box-shadow: 0 1px 4px rgba(15, 23, 42, 0.9);
+  }
+
+  .gemini-chat-map-sidebar-item:active {
+    background: rgba(55, 65, 81, 0.96);
+    box-shadow: 0 0 0 rgba(15, 23, 42, 0.6);
+  }
+
+  .gemini-chat-map-highlight {
+    outline-color: rgba(56, 189, 248, 0.9);
+    box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.7);
+  }
+}
+
